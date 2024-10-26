@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:run": "cypress run"
-  },
+ "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "cypress:run": "cypress run --reporter cypress-mochawesome-reporter",
+  "postinstall": "cypress-mochawesome-reporter install"
+},
   "keywords": [],
   "author": "Vitoria",
   "license": "ISC",
