@@ -59,3 +59,5 @@ class Cadastro {
 }
 
 export default new Cadastro();
+
+//apenas um texte
