@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:run": "cypress run --reporter cypress-mochawesome-reporter",
-    "postinstall": "cypress-mochawesome-reporter install"
+    "cypress:run": "cypress run",
+    "postinstall": "npx cypress-mochawesome-reporter install",
+    "report": "mouchawesome-merge cypress/reports/*.json > cypress/reports/report.json && mochawesome-report-generator cypress/reports/report.json"
   },
   "keywords": [],
   "author": "Vitoria",
