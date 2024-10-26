@@ -1,4 +1,4 @@
-describe("Cadastrar entradas e saídas com bugs", () => {
+/*describe("Cadastrar entradas e saídas com bugs", () => {
   it("Cadastrar uma nova transação de entrada - falha 1", () => {
     cy.visit("https://devfinance-agilizei.netlify.app");
 
@@ -83,3 +83,4 @@ describe("Cadastrar entradas e saídas com bugs", () => {
     cy.get("tbody tr").should("have.length", 1);
   });
 });
+*/

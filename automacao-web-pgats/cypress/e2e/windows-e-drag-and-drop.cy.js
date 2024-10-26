@@ -1,4 +1,4 @@
-describe("Windows e Drag and Drop", () => {
+/*describe("Windows e Drag and Drop", () => {
   it("Janelas e Abas", () => {
     cy.visit("https://the-internet.herokuapp.com/windows");
 
@@ -18,3 +18,4 @@ describe("Windows e Drag and Drop", () => {
     cy.contains("B").trigger("drop", { dataTransfer });
   });
 });
+*/

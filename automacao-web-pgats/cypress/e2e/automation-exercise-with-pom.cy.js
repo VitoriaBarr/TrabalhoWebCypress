@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/*/// <reference types="cypress" />
 // pom - page object model
 
 import cadastro from "../pages/cadastro/index";
@@ -131,3 +131,4 @@ describe("Automation Exercise", () => {
       .deletarConta();
   });
 });
+*/

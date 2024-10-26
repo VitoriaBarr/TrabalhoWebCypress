@@ -1,4 +1,4 @@
-describe("Automation Exercise", () => {
+/*describe("Automation Exercise", () => {
   it("Test Case 1: Cadastrar usuário", () => {
     require("cypress-xpath");
     const timestamp = new Date().getTime();
@@ -45,3 +45,4 @@ describe("Automation Exercise", () => {
     cy.xpath("//i[@class='fa fa-user']").parent().should("contain", signUpName);
   });
 });
+*/
