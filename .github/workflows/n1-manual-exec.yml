@@ -1,29 +1,24 @@
-name: "Execução Manual"
+name: Execução Manual
 
 on:
   workflow_dispatch:
 
 jobs:
-  e2e-tests:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: "18"
+          node-version: "18" # ou a versão que você está usando
 
       - name: Instalar dependências
-        run: npm install
+        run: |
+          npm install
+          npx cypress-mochawesome-reporter install
 
-      - name: Executar testes E2E (end-to-end)
-        run: npm run cypress:run
-
-      - name: Publicar relatórios
-        uses: actions/upload-artifact@v4
-        with:
-          name: relatorio-de-testes
-          path: cypress/reports
+      - name: Executar Cypress
+        run: npx cypress run
