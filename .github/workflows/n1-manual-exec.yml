@@ -1,46 +1,29 @@
-# CI de Nivel 01 - Disparo manual a partir de 1 clique
-
-#Nome que vai aparecer nas opções de pipe
-name: "Execucao Manual"
-
-# triggers OU gatilhos de execucao. regras de disparo da execucao
-# gatilho de exec manual = workflow_dispatch
+name: "Execução Manual"
 
 on:
   workflow_dispatch:
 
 jobs:
-  # descricao do job
   e2e-tests:
-    #maquina que o job vai executar
-    runs-on: ["ubuntu-latest"]
+    runs-on: ubuntu-latest
 
-    # passo a passo das acoes do job
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-      # - uses: actions/setup-node@v4
-      #   with:
-      #       node-version: lts/* = última versão estável
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
 
-      - name: Instalando Yarn
-        run: npm install -g yarn
+      - name: Instalar dependências
+        run: npm install
 
-      - name: Instalando dependencias
-        run: yarn
+      - name: Executar testes E2E (end-to-end)
+        run: npm run cypress:run
 
-      - name: Instalando Playwright
-        run: yarn playwright install
-
-      - name: Testes E2E (end-to-end)
-        run: yarn run e2e
-
-      - uses: actions/upload-artifact@v4
-        if: ${{ !cancelled() }} #expressão para passar se for diferente de cancelado
+      - name: Publicar relatórios
+        uses: actions/upload-artifact@v4
         with:
           name: relatorio-de-testes
-          path: ./playwright-report #caminho onde fica o relatório
-
-
-          #Expressão serve para independente de se acontecer algo ruim no passo anterior que
-          # o passo que tenha a expressão execute normalmente
+          path: cypress/reports
